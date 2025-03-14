@@ -1,0 +1,28 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+int main() {
+ std::ifstream file1, file2;
+ std::ofstream mergedFile;
+ std::string line;
+ file1.open("file1.txt");
+ file2.open("file2.txt");
+ mergedFile.open("merged.txt");
+ if (!file1 || !file2) {
+ std::cout << "Error in opening files!" << std::endl;
+ return 1; // Exit the program if files cannot be opened
+ }
+ // Copy lines from file1 to mergedFile
+ while (std::getline(file1, line)) {
+ mergedFile << line << std::endl;
+ }
+ // Copy lines from file2 to mergedFile
+ while (std::getline(file2, line)) {
+ mergedFile << line << std::endl;
+}
+ file1.close();
+ file2.close();
+ mergedFile.close();
+ std::cout << "Files merged successfully into merged.txt." << std::endl;
+ return 0; // Return success
+}
