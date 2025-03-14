@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+class ClassB;
+class ClassA {
+private:
+ int num1;
+public:
+ ClassA(int n) {
+ num1 = n;
+ }
+ friend void calculate(ClassA, ClassB);
+};
+class ClassB {
+private:
+ float num2;
+public:
+ ClassB(float n) {
+num2 = n;
+ }
+ friend void calculate(ClassA, ClassB);
+};
+void calculate(ClassA objA, ClassB objB) {
+ float result = objA.num1 + objB.num2;
+ cout << "Sum of integer and float is: " << result << endl;
+}
+int main() {
+ int intValue;num2 = n;
+float floatValue;
+
+ cout << "Enter an integer value for ClassA: ";
+ cin >> intValue;
+ cout << "Enter a float value for ClassB: ";
+ cin >> floatValue;
+ ClassA objA(intValue);
+ ClassB objB(floatValue);
+ calculate(objA, objB);
+ return 0;
+}
+
