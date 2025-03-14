@@ -1,0 +1,52 @@
+#include <iostream>
+using namespace std;
+class ARITHMETIC
+{
+public:
+ int num1;
+ float num2;
+ ARITHMETIC(int a, float b)
+ {
+ num1 = a;
+ num2 = b;
+ }
+ void addition()
+ {
+ cout << "Addition of values: " << num1 + num2 << "\n";
+ }
+ void subtraction()
+ {
+ cout << "Subtraction of values: " << num1 - num2 << "\n";
+}
+ void multiply()
+ {
+ cout << "Multiplication of values: " << num1 * num2 << "\n";
+ }
+ void division()
+ {
+ if (num2 != 0)
+ cout << "Division of values: " << num1 / num2 << "\n";
+else
+ cout << "Error! Division by zero.\n";
+ }
+ void display()
+ {
+ cout << "Value 1: " << num1 << " Value 2: " << num2 << "\n";
+ }
+};
+int main()
+{
+ int a;
+ float b;
+ cout << "Enter an integer value for num1: ";
+ cin >> a;
+ cout << "Enter a float value for num2: ";
+ cin >> b;
+ ARITHMETIC cal(a, b);
+cal.display();
+ cal.addition();
+ cal.subtraction();
+ cal.multiply();
+ cal.division();
+ return 0;
+}
