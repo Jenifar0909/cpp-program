@@ -1,0 +1,55 @@
+#include <iostream>
+using namespace std;
+class demo {
+public:
+ int stack[5];
+ int top;
+public:
+ demo() {
+ top = -1;
+ }
+ void push(int num) {
+ if (top >= 4) {
+ cout << "Cannot add values, stack overflow.\n";
+ } else {
+ stack[++top] = num;
+ cout << "Value added successfully: " << stack[top] << "\n";
+ }
+ }
+void pop() {
+ if (top < 0) {
+ cout << "Cannot delete value, stack underflow.\n";
+ } else {
+ cout << "Value removed: " << stack[top] << "\n";
+ top--;
+ }
+ }
+ void display() {
+ if (top == -1) {
+cout << "Stack is empty.\n";
+ } else {
+ cout << "Values in stack: ";
+ for (int i = 0; i <= top; i++) {
+ cout << stack[i] << " ";
+ }
+ cout << "\n";
+ }
+ }
+};
+int main() {
+ demo d;
+ d.push(10);
+ d.push(20);
+ d.push(30);
+ d.push(40);
+ d.push(50);
+d.push(60);
+ d.display();
+ d.pop();
+ d.pop();
+ d.pop();
+ d.pop();
+ d.pop();
+ d.pop();
+ return 0;
+}
