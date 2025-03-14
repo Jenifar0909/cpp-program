@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+class single {
+public:
+ int number;
+ single(int num) {
+ number = num;
+ }
+ ~single() {
+ cout << "Destructor called" << endl;
+ }
+ inline void reduce() {
+ int lastdigit;
+ while (number > 9) {
+ int sum = 0;
+ while (number > 0) {
+ lastdigit = number % 10;
+ sum += lastdigit;
+number = number / 10;
+ }
+ number = sum;
+ }
+ cout << "Reduced single digit value: " << number << endl;
+ }
+};
+int main() {
+ int number;
+ cout << "Enter an integer: ";
+cin >> number;
+ single s(number);
+ s.reduce();
+ return 0;
+}
